@@ -317,7 +317,7 @@ public class Properties {
         // random
         RANDOM_SEARCH,
         // GAs
-        STANDARD_GA, MONOTONIC_GA, STEADY_STATE_GA, BREEDER_GA, CELLULAR_GA, STANDARD_CHEMICAL_REACTION, MAP_ELITES,
+        GECCO2019_GA, MONOTONIC_GA, STEADY_STATE_GA, BREEDER_GA, CELLULAR_GA, STANDARD_CHEMICAL_REACTION, MAP_ELITES,
         // mu-lambda
         ONE_PLUS_LAMBDA_LAMBDA_GA, ONE_PLUS_ONE_EA, MU_PLUS_LAMBDA_EA, MU_LAMBDA_EA,
         // many-objective algorithms
@@ -2409,7 +2409,7 @@ public class Properties {
         writeConfiguration(name);
     }
 
-     /**
+    /**
      * Update the evosuite.properties file with the current setting
      *
      * @param fileName a {@link java.lang.String} object.
@@ -2672,7 +2672,7 @@ public class Properties {
         }
     };
 
-     public final static Map<Integer, Double> RC_DIFFICULTY_COEFFICIENT_MAP = new HashMap<Integer, Double>() {
+    public final static Map<Integer, Double> RC_DIFFICULTY_COEFFICIENT_MAP = new HashMap<Integer, Double>() {
         {
             put(25, 2.0);
             put(28, 4.0);

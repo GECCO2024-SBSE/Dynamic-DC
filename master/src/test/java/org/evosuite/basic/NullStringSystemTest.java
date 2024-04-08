@@ -19,25 +19,16 @@
  */
 package org.evosuite.basic;
 
-import com.examples.with.different.packagename.GECCO.Betai;
-import com.examples.with.different.packagename.GECCO.Plgndr;
-import com.examples.with.different.packagename.GECCO.Rc;
-import com.examples.with.different.packagename.NextDate;
-import com.examples.with.different.packagename.ValidDate;
-import com.examples.with.different.packagename.Add;
-import com.examples.with.different.packagename.Bessj;
-import com.examples.with.different.packagename.Bessi;
-import com.examples.with.different.packagename.Gammq;
-import com.examples.with.different.packagename.Expint;
-import com.examples.with.different.packagename.EI;
+
+import org.evosuite.SystemTestBase;
+import org.junit.Test;
+import com.examples.with.different.packagename.untitled.TreeSet;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
-import org.evosuite.SystemTestBase;
 import org.evosuite.coverage.branch.BranchCoverageTestFitness;
 import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.evosuite.strategy.TestGenerationStrategy;
 import org.evosuite.testsuite.TestSuiteChromosome;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,22 +36,22 @@ import java.util.stream.Collectors;
 
 public class NullStringSystemTest extends SystemTestBase {
 
-    @Test
+    @Test()
     public void testNullString() {
         List<Double> coverageList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             EvoSuite evosuite = new EvoSuite();
 
 //        String targetClass = Triangle.class.getCanonicalName();
-            String targetClass = NextDate.class.getCanonicalName();
-//        String targetClass = NextDateOrigin.class.getCanonicalName();
+//            String targetClass = AVLTree.class.getCanonicalName();
+//        String targetClass = NextDate.class.getCanonicalName();
 //        String targetClass = DayOfWeek.class.getCanonicalName();
 //        String targetClass = Add.class.getCanonicalName();
 //        String targetClass = AddOrigin.class.getCanonicalName();
 //       String targetClass = ValidDate.class.getCanonicalName();
 //        String targetClass = ValidDateOrqigin.class.getCanonicalName();
 //        String targetClass = Example.class.getCanonicalName();
-//        String targetClass = TreeSet.class.getCanonicalName();
+        String targetClass = TreeSet.class.getCanonicalName();
 //        String targetClass = NextDateOriginal.class.getCanonicalName();
 //        String targetClass = NullString.class.getCanonicalName();
 //        String targetClass = Triangle.class.getCanonicalName();
@@ -85,7 +76,7 @@ public class NullStringSystemTest extends SystemTestBase {
 //            Properties.BESSJ_DC = true;
 //            Properties.GAMMQ_DC = true;
 //            Properties.EXPINT_DC = true;
-           Properties.NEXT_DATE_DC = true;
+//           Properties.NEXT_DATE_DC = true;
 //            Properties.VALID_DATE_DC = true;
 //            Properties.ADD_DATE_DC = true;
 //            Properties.DIFFICULTY_EFFICIENT_ARRAY = Properties.NEXT_DATE_DIFFICULTY_COEFFICIENT_MAP;
@@ -103,7 +94,7 @@ public class NullStringSystemTest extends SystemTestBase {
 //        Properties.STRATEGY = Properties.Strategy.TLBO;
 //        String[] command = new String[]{"-generateSuite", "-class", targetClass, "-Dstrategy="+Properties.Strategy.TLBO.name()};
             Properties.RANDOM_SEED = System.currentTimeMillis();
-            Properties.ALGORITHM = Properties.Algorithm.STANDARD_GA;
+            Properties.ALGORITHM = Properties.Algorithm.GECCO2019_GA;
             String[] command = new String[]{"-generateSuite", "-class", targetClass};
 //        String[] command = new String[]{"-generateTests", "-class", targetClass};
 //        Properties.NULL_PROBABILITY = 1;

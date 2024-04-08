@@ -46,16 +46,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.Stack;
 import java.util.stream.Collectors;
 
 /**
@@ -491,25 +483,25 @@ public class BranchCoverageSuiteFitness extends TestSuiteFitnessFunction {
                 numExecuted++;
 
             if (trueDistance.containsKey(key)) {
-//                dt = trueDistance.get(key);
-//                if (!this.toRemoveBranchesT.contains(key) && Properties.PROPOSED_DC) {
-//                    // Branch is not covered
-//                    Integer lineNumber = trueBranchIdAndLineNumberMap.get(key);
-//                    double dc = Optional.ofNullable(branchDifficultyCoefficient.get(lineNumber)).orElse(1d);
-//                    dt = trueDistance.get(key) * dc;
-//                } else {
                 dt = trueDistance.get(key);
-//                }
+                if (!this.toRemoveBranchesT.contains(key) && Properties.PROPOSED_DC) {
+                    // Branch is not covered
+                    Integer lineNumber = trueBranchIdAndLineNumberMap.get(key);
+                    double dc = Optional.ofNullable(branchDifficultyCoefficient.get(lineNumber)).orElse(1d);
+                    dt = trueDistance.get(key) * dc;
+                } else {
+                dt = trueDistance.get(key);
+                }
             }
             if (falseDistance.containsKey(key)) {
-//                df = falseDistance.get(key);
-//                if (!this.toRemoveBranchesF.contains(key) && Properties.PROPOSED_DC) {
-//                    Integer lineNumber = falseBranchIdAndLineNumberMap.get(key);
-//                    double dc = Optional.ofNullable(branchDifficultyCoefficient.get(lineNumber)).orElse(1d);
-//                    df = falseDistance.get(key) * dc;
-//                } else {
                 df = falseDistance.get(key);
-//                }
+                if (!this.toRemoveBranchesF.contains(key) && Properties.PROPOSED_DC) {
+                    Integer lineNumber = falseBranchIdAndLineNumberMap.get(key);
+                    double dc = Optional.ofNullable(branchDifficultyCoefficient.get(lineNumber)).orElse(1d);
+                    df = falseDistance.get(key) * dc;
+                } else {
+                df = falseDistance.get(key);
+                }
             }
             // If the branch predicate was only executed once, then add 1
             if (numExecuted == 1) {
@@ -527,33 +519,33 @@ public class BranchCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
         if (Properties.PROPOSED_DC || Properties.SAKTI_DC) {
             // Add DC value
-//            for (Map.Entry<Integer, TestFitnessFunction> entry : branchCoverageTrueMap.entrySet()) {
-//                if (!predicateCount.containsKey(entry.getKey())) {
-//                    BranchCoverageTestFitness branchCoverageTestFitness = (BranchCoverageTestFitness) entry.getValue();
-//                    int lineNumber = branchCoverageTestFitness.getBranchGoal().getLineNumber();
-//                    Double dcValue = branchDifficultyCoefficient.get(lineNumber);
-//                    fitness += dcValue != null ? dcValue.doubleValue() : 0.0;
-//                }
-//            }
-
-            // Get node to active DC value (all node belongs to the path lead to uncovered node)
-            Set<Integer> setOfDCNode = new HashSet<>();
             for (Map.Entry<Integer, TestFitnessFunction> entry : branchCoverageTrueMap.entrySet()) {
-                if (!predicateCount.containsKey(entry.getKey()) && nodeAndPathMap.containsKey(entry.getKey())) {
-                    Set<Integer> allPathNodes = getAllPathNodes(entry.getKey(), nodeAndPathMap);
-                    setOfDCNode.addAll(allPathNodes);
-                }
-            }
-            String activeDCNodes = setOfDCNode.stream().map(i -> String.valueOf(i)).collect(Collectors.joining(", "));
-//            appendToFile("ActiveDCNode.txt", activeDCNodes);
-            for (Integer integer : setOfDCNode) {
-                Branch branch = branchPool.getBranch(integer);
-                if (branch != null) {
-                    int lineNumber = branch.getInstruction().getLineNumber();
+                if (!predicateCount.containsKey(entry.getKey())) {
+                    BranchCoverageTestFitness branchCoverageTestFitness = (BranchCoverageTestFitness) entry.getValue();
+                    int lineNumber = branchCoverageTestFitness.getBranchGoal().getLineNumber();
                     Double dcValue = branchDifficultyCoefficient.get(lineNumber);
                     fitness += dcValue != null ? dcValue.doubleValue() : 0.0;
                 }
             }
+
+            // Get node to active DC value (all node belongs to the path lead to uncovered node)
+//            Set<Integer> setOfDCNode = new HashSet<>();
+//            for (Map.Entry<Integer, TestFitnessFunction> entry : branchCoverageTrueMap.entrySet()) {
+//                if (!predicateCount.containsKey(entry.getKey()) && nodeAndPathMap.containsKey(entry.getKey())) {
+//                    Set<Integer> allPathNodes = getAllPathNodes(entry.getKey(), nodeAndPathMap);
+//                    setOfDCNode.addAll(allPathNodes);
+//                }
+//            }
+//            String activeDCNodes = setOfDCNode.stream().map(i -> String.valueOf(i)).collect(Collectors.joining(", "));
+////            appendToFile("ActiveDCNode.txt", activeDCNodes);
+//            for (Integer integer : setOfDCNode) {
+//                Branch branch = branchPool.getBranch(integer);
+//                if (branch != null) {
+//                    int lineNumber = branch.getInstruction().getLineNumber();
+//                    Double dcValue = branchDifficultyCoefficient.get(lineNumber);
+//                    fitness += dcValue != null ? dcValue.doubleValue() : 0.0;
+//                }
+//            }
         }
 
         // +1 for every branch that was not executed

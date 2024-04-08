@@ -227,7 +227,7 @@ public class PropertiesSuiteGAFactory
                 }
             default:
                 logger.info("Chosen search algorithm: StandardGA");
-                return new StandardGA<>(factory);
+                return new Gecco2019<>(factory);
         }
     }
 
