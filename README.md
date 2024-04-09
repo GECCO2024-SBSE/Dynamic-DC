@@ -29,47 +29,13 @@ especially for covering difficult-to-reach branches.
 Table 2 presents a comparison of the coverage rates for 14 pro-grams using three different approaches.
 # Execute
 [README EVOSUITE](https://github.com/LeMINhVux/GECCO_2024_Constraint_Based_Software_Test_Generation/blob/main/Program/README.md)
-# References
-[1] Arthur Baars, Mark Harman, Youssef Hassoun, Kiran Lakhotia, Phil McMinn,
-Paolo Tonella, and Tanja Vos. 2011. Symbolic search-based testing. In 2011 26th
-IEEE/ACM International Conference on Automated Software Engineering (ASE 2011).
-IEEE, 53–62.
+# Citation
+Thi-Mai-Anh Bui, Van-Tri Do, Minh Vu Le, Quoc-Trung Bui. 2024. Dy-
+namic Difficulty Coefficient in Search-Based Software Testing: Targeting to
+Hard Branch Coverage. In Genetic and Evolutionary Computation Conference
+(GECCO ’24 Companion), July 14–18, 2024, Melbourne, VIC, Australia. ACM,
+New York, NY, USA, 4 pages. https://doi.org/10.1145/3638530.3654411
 
-[2] Thi-Mai-Anh Bui, Quoc-Trung Bui, and Van-Tri Do. 2023. A Novel Fitness Function for Automated Software Test Case Generation Based on Nested Constraint
-Hardness. In Proceedings of the Companion Conference on Genetic and Evolutionary
-Computation. 791–794.
-
-[3] Gordon Fraser and Andrea Arcuri. 2011. Evosuite: automatic test suite generation
-for object-oriented software. In Proceedings of the 19th ACM SIGSOFT symposium
-and the 13th European conference on Foundations of software engineering. 416–419.
-
-[4] Jan Malburg and Gordon Fraser. 2014. Search-based testing using constraint-based
-mutation. Software Testing, Verification and Reliability 24, 6 (2014), 472–495.
-
-[5] Phil McMinn. 2004. Search-based software test data generation: a survey. Software
-testing, Verification and reliability 14, 2 (2004), 105–156.
-
-[6] Annibale Panichella, Fitsum Meshesha Kifetew, and Paolo Tonella. 2017. Automated test case generation as a many-objective optimisation problem with
-dynamic selection of the targets. IEEE Transactions on Software Engineering 44, 2
-(2017), 122–158
-
-[7] Abdelilah Sakti, Yann-Gaël Guéhéneuc, and Gilles Pesant. 2013. Constraint-based
-fitness function for search-based software testing. In Integration of AI and OR
-Techniques in Constraint Programming for Combinatorial Optimization Problems:
-10th International Conference, CPAIOR 2013, Yorktown Heights, NY, USA, May
-18-22, 2013. Proceedings 10. Springer, 378–385.
-
-[8] Xiong Xu, Ziming Zhu, and Li Jiao. 2017. An adaptive fitness function based
-on branch hardness for search based testing. In Proceedings of the Genetic and
-Evolutionary Computation Conference. 1335–1342.
-
-[9] Ziming Zhu and Li Jiao. 2019. Improving search-based software testing by
-constraint-based genetic operators. In Proceedings of the Genetic and Evolutionary
-Computation Conference. 1435–1442.
-
-[10] Ziming Zhu, Li Jiao, and Xiong Xu. 2018. A Dynamic Fitness Function Based on
-Branch Hardness for Search Based Software Testing. In 2018 25th Asia-Pacific
-Software Engineering Conference (APSEC). IEEE, 159–168
 
 
 
