@@ -111,7 +111,6 @@ public class NullStringSystemTest extends SystemTestBase {
 //        String[] command = new String[]{"-generateSuite", "-class", targetClass, "-Dstrategy="+Properties.Strategy.TLBO.name()};
             Properties.RANDOM_SEED = System.currentTimeMillis();
             Properties.ALGORITHM = Properties.Algorithm.STANDARD_GA;
-            Properties.CROSSOVER_FUNCTION = SINGLEPOINT ;
             String[] command = new String[]{"-generateSuite", "-class", targetClass};
 //        String[] command = new String[]{"-generateTests", "-class", targetClass};
 //        Properties.NULL_PROBABILITY = 1;
